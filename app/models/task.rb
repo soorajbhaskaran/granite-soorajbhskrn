@@ -7,6 +7,7 @@ class Task < ApplicationRecord
   validate :slug_not_changed
 
   before_create :set_slug
+  before_validation :set_title
 
   private
 
@@ -29,5 +30,9 @@ class Task < ApplicationRecord
 
     def slug_not_changed
       errors.add(:slug, t("task.slug.immutable")) if slug_changed? && self.persisted?
+    end
+
+    def set_title
+      self.title = "Pay electricity bill"
     end
 end
