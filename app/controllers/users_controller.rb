@@ -5,4 +5,16 @@ class UsersController < ApplicationController
     users = User.select(:id, :name)
     render status: :ok, json: { users: users }
   end
+
+  def create
+    users = User.new(user_params)
+    users.save!
+    respond_with_success(t("successfully_created", entity: "User"))
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
