@@ -21,7 +21,7 @@ const NavBar = () => {
               />
             </div>
           </div>
-          <div className="flex items-center justify-end gap-x-4">
+          <div className="ml-10 flex items-center justify-end gap-x-4">
             <span
               className="font-regular transition focus:outline-none inline-flex items-center border-b-2 border-transparent px-2
               pt-1 text-sm leading-5 text-bb-gray-600 text-opacity-50 duration-150 ease-in-out
@@ -32,7 +32,7 @@ const NavBar = () => {
           </div>
           <div className="flex items-center justify-end">
             <a
-              className="transition focus:outline-none inline-flex cursor-pointer items-center
+              className="transition focus:outline-n̦one inline-flex cursor-pointer items-center
              border-b-2 border-transparent px-1 pt-1
              text-sm font-semibold leading-5 text-bb-gray-600
              text-opacity-50 duration-150 ease-in-out
