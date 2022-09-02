@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include Pundit
   before_action :authenticate_user_using_x_auth_token
-
-  rescue_from Pundit::NotAuthorizedError, with: :handle_authorization_error
 
   rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :handle_validation_error
   rescue_from ActiveRecord::RecordNotUnique, with: :handle_record_not_unique
   rescue_from ActionController::ParameterMissing, with: :handle_api_error
+
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :handle_authorization_error
 
   private
 
@@ -57,6 +57,7 @@ class ApplicationController < ActionController::Base
 
     def handle_authorization_error
       respond_with_error(t("authorization.denied"), :forbidden)
+    end
 
     def current_user
       @current_user

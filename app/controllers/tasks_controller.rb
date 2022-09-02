@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :load_task!, only: %i[show update destroy]
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
+  before_action :load_task!, only: %i[show update destroy]
 
   def index
     tasks = policy_scope(Task)

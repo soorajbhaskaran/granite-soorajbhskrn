@@ -8,7 +8,7 @@ import PageLoader from "components/PageLoader";
 import Table from "components/Tasks/Table";
 
 const Dashboard = ({ history }) => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([0]);
   const [loading, setLoading] = useState(true);
 
   const fetchTasks = async () => {
