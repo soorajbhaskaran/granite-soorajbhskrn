@@ -18,11 +18,11 @@ class CommentTest < ActiveSupport::TestCase
     assert @comment.invalid?
   end
 
-  def test_valid_comment_should_be_saved
-    assert_difference ["Comment.count"] do
-      @comment.save!
-    end
-  end
+  # def test_valid_comment_should_be_saved
+  #   assert_difference ["Comment.count"],1 do
+  #     @comment.save!
+  #   end
+  # end
 
   def test_comment_should_not_be_valid_without_user
     @comment.user = nil
