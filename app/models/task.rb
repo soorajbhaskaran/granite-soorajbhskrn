@@ -14,6 +14,7 @@ class Task < ApplicationRecord
   before_create :set_slug
 
   enum progress: { pending: "pending", completed: "completed" }
+  enum status: { unstarred: "unstarred", starred: "starred" }
 
   private
 
@@ -36,5 +37,16 @@ class Task < ApplicationRecord
 
     def slug_not_changed
       errors.add(:slug, t("task.slug.immutable")) if slug_changed? && self.persisted?
+    end
+
+    def self.of_status(progress)
+      if progress == :pending
+        starred = pending.starred.order("updated_at DESC")
+        unstarred = pending.unstarred.order("updated_at DESC")
+      else
+        starred = completed.starred.order("updated_at DESC")
+        unstarred = completed.unstarred.order("updated_at DESC")
+      end
+      starred + unstarred
     end
 end
