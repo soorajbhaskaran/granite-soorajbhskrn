@@ -38,6 +38,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
+      # #assigned_user_id=nil
       params.require(:task).permit(:title, :assigned_user_id, :progress, :status)
     end
 
