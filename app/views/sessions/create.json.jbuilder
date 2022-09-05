@@ -1,6 +1,6 @@
-  # frozen_string_literal: true
+# frozen_string_literal: true
 
-  json.extract! @user,
-    :id,
-    :name,
-    :authentication_token
+json.extract! @user,
+  :id,
+  :name,
+  :authentication_token
