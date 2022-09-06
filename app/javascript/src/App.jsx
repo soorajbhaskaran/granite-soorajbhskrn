@@ -8,6 +8,7 @@ import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
 import PrivateRoute from "components/Common/PrivateRoute";
 import Dashboard from "components/Dashboard";
+import MyPreferences from "components/MyPreferences";
 import PageLoader from "components/PageLoader";
 import { CreateTask, ShowTask, EditTask } from "components/Tasks";
 import { getFromLocalStorage } from "utils/storage";
@@ -40,6 +41,7 @@ const App = () => {
         <Route exact component={ShowTask} path="/tasks/:slug/show" />
         <Route exact component={EditTask} path="/tasks/:slug/edit" />
         <Route exact component={CreateTask} path="/tasks/create" />
+        <Route exact component={MyPreferences} path="/my/preferences" />
         <Route exact component={Dashboard} path="/dashboard" />
         <Route exact component={Signup} path="/signup" />
         <Route exact component={Login} path="/login" />
